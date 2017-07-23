@@ -1,3 +1,3 @@
-singleton/.idea
-singleton/target/
-singleton/*.iml
+*/.idea
+*/target/
+*/*.iml
