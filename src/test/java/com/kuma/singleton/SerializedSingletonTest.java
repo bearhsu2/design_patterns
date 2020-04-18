@@ -1,5 +1,6 @@
-package com.kuma;
+package com.kuma.singleton;
 
+import com.kuma.singleton.SerializedSingleton;
 import org.junit.Test;
 
 import java.io.*;

@@ -1,5 +1,6 @@
-package com.kuma;
+package com.kuma.singleton;
 
+import com.kuma.singleton.EagerInitialization;
 import org.junit.Assert;
 import org.junit.Test;
 
