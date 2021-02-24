@@ -1,4 +1,4 @@
-package com.kuma;
+package com.kuma.singleton;
 
 import java.io.Serializable;
 

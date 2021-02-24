@@ -1,4 +1,4 @@
-package com.kuma;
+package com.kuma.singleton;
 
 /**
  * Created by bearhsu2 on 10/10/2016.
