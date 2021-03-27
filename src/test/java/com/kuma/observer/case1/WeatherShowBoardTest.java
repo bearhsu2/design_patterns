@@ -1,9 +1,8 @@
-package com.kuma.observer;
+package com.kuma.observer.case1;
 
-import javafx.beans.binding.When;
+import com.kuma.observer.case1.Weather;
+import com.kuma.observer.case1.WeatherShowBoard;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class WeatherShowBoardTest {
 

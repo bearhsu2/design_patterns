@@ -1,4 +1,4 @@
-package com.kuma.observer;
+package com.kuma.observer.case1;
 
 import java.util.Observable;
 import java.util.Observer;
