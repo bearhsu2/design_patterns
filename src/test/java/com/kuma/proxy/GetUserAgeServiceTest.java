@@ -3,7 +3,8 @@ package com.kuma.proxy;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class GetUserAgeServiceTest {
 

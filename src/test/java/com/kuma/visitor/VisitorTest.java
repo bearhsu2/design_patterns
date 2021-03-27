@@ -4,7 +4,7 @@ import com.kuma.visitor.news.GreenNews;
 import com.kuma.visitor.news.RedNews;
 import com.kuma.visitor.reader.BlueReader;
 import com.kuma.visitor.reader.GreenReader;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class VisitorTest {
 

@@ -1,8 +1,6 @@
 package com.kuma.observer.case1;
 
-import com.kuma.observer.case1.Weather;
-import com.kuma.observer.case1.WeatherShowBoard;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class WeatherShowBoardTest {
 

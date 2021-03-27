@@ -1,7 +1,7 @@
 package com.kuma.singleton;
 
-import com.kuma.singleton.SerializedSingleton;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.*;
 

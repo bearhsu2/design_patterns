@@ -1,7 +1,8 @@
 package com.kuma.builder;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PatientTest {
   @Test
@@ -12,6 +13,6 @@ public class PatientTest {
 
     boolean actual = p1.isYoungerThan(p2);
 
-    Assert.assertTrue(actual);
+    assertTrue(actual);
   }
 }

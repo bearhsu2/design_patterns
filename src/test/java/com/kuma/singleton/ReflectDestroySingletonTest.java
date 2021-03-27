@@ -1,10 +1,11 @@
 package com.kuma.singleton;
 
 import com.kuma.singleton.EagerInitialization;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * Created by bearhsu2 on 10/10/2016.
@@ -30,7 +31,7 @@ public class ReflectDestroySingletonTest {
 
         System.out.println(eagerOne.hashCode());
         System.out.println(eagerTwo.hashCode());
-        Assert.assertNotEquals(eagerOne.hashCode(), eagerTwo.hashCode());
+        assertNotEquals(eagerOne.hashCode(), eagerTwo.hashCode());
 
 
     }
