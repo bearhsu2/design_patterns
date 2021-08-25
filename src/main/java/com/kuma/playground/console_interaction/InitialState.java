@@ -17,7 +17,9 @@ public class InitialState implements State {
     public void input(String answer) {
         if (answer.equals("R")) {
             module.setState(new RectangleSelectedState(this.module));
-//            module.setStatus(Module.RECTANGLE_SELECTED);
+        } else if (answer.equals("C")) {
+            module.setState(new CircleSelectedState(this.module));
+
         }
     }
 }

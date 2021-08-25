@@ -136,4 +136,47 @@ class ConsoleInteractionTest {
 
     }
 
+    @Test
+    void initial_and_C() {
+
+        Module module = new Module();
+
+        module.input("C");
+
+        String printed = module.print();
+
+        Assertions.assertEquals("Circle radius?", printed);
+
+    }
+
+    @Test
+    void initial_and_C_10() {
+
+        Module module = new Module();
+
+        module.input("C");
+        module.input("10");
+
+        String printed = module.print();
+
+
+        Assertions.assertEquals("Area=300, Circumference=60", printed);
+
+    }
+
+    @Test
+    void initial_and_C_100() {
+
+        Module module = new Module();
+
+        module.input("C");
+        module.input("100");
+
+        String printed = module.print();
+
+
+        Assertions.assertEquals("Area=30000, Circumference=600", printed);
+
+    }
+
 }

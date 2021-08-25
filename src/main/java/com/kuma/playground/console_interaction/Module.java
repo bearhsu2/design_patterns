@@ -11,7 +11,6 @@ public class Module {
         this.state.input(answer);
     }
 
-
     public void setState(State state) {
         this.state = state;
     }
