@@ -12,25 +12,25 @@ public class Module {
     private int b;
 
     public String print() {
+        if (this.status.equals(INITIAL)) {
+            return "Shape: (C)ircle or (R)ectangle?";
+        }
         if (this.status.equals(RECTANGLE_SELECTED)) {
             return "Rectangle side A length?";
         }
-
         if (this.status.equals(RECTANGLE_A_SELECTED)) {
             return "Rectangle side B length?";
         }
-
         if (this.status.equals(RECTANGLE_B_SELECTED)) {
             return "Area=" + (a * b) + ", Circumference=" + (2 * (a + b));
         }
-        return "Shape: (C)ircle or (R)ectangle?";
+        return "";
     }
 
     public void input(String answer) {
         if (this.status.equals(INITIAL) && answer.equals("R")) {
             this.status = RECTANGLE_SELECTED;
         } else if (this.status.equals(RECTANGLE_SELECTED)) {
-
 
             try {
                 Integer answerInt = Integer.valueOf(answer);
@@ -49,6 +49,8 @@ public class Module {
             } catch (NumberFormatException e) {
                 return;
             }
+        } else if (this.status.equals(RECTANGLE_B_SELECTED)) {
+            // do nothing
         }
 
     }
