@@ -5,10 +5,10 @@ public class Module {
     public static final String RECTANGLE_A_SELECTED = "RectangleASelected";
     public static final String RECTANGLE_B_SELECTED = "RectangleBSelected";
     public static final String RECTANGLE_SELECTED = "RectangleSelected";
-    private final InitialState initialState = new InitialState(this);
-    private final RectangleSelectedState rectangleSelectedState = new RectangleSelectedState(this);
-    private final RectangleASelectedState rectangleASelectedState = new RectangleASelectedState(this);
-    private final RectangleBSelectedState rectangleBSelectedState = new RectangleBSelectedState(this);
+    private final State initialState = new InitialState(this);
+    private final State rectangleSelectedState = new RectangleSelectedState(this);
+    private final State rectangleASelectedState = new RectangleASelectedState(this);
+    private final State rectangleBSelectedState = new RectangleBSelectedState(this);
     private String status = INITIAL;
     private int a;
     private int b;

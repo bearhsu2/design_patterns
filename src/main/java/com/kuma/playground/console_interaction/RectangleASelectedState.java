@@ -1,17 +1,19 @@
 package com.kuma.playground.console_interaction;
 
-public class RectangleASelectedState {
+public class RectangleASelectedState implements State {
     private final Module module;
 
     public RectangleASelectedState(Module module) {
         this.module = module;
     }
 
-    String print() {
+    @Override
+    public String print() {
         return "Rectangle side B length?";
     }
 
-    void input(String answer) {
+    @Override
+    public void input(String answer) {
         try {
             Integer answerInt = Integer.valueOf(answer);
             module.setB(answerInt);
