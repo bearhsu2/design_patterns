@@ -1,19 +1,42 @@
 package com.kuma.playground.console_interaction;
 
 public class Module {
-    private final String INITIAL = "Initial";
-    private final String RECTANGLE_A_SELECTED = "RectangleASelected";
-    private final String RECTANGLE_B_SELECTED = "RectangleBSelected";
-    private final String RECTANGLE_SELECTED = "RectangleSelected";
-
-
+    public static final String INITIAL = "Initial";
+    public static final String RECTANGLE_A_SELECTED = "RectangleASelected";
+    public static final String RECTANGLE_B_SELECTED = "RectangleBSelected";
+    public static final String RECTANGLE_SELECTED = "RectangleSelected";
+    private final InitialState initialState = new InitialState(this);
     private String status = INITIAL;
     private int a;
     private int b;
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
     public String print() {
         if (this.status.equals(INITIAL)) {
-            return printInitial();
+            return initialState.printInitial();
         }
         if (this.status.equals(RECTANGLE_SELECTED)) {
             return "Rectangle side A length?";
@@ -28,12 +51,12 @@ public class Module {
     }
 
     private String printInitial() {
-        return "Shape: (C)ircle or (R)ectangle?";
+        return initialState.printInitial();
     }
 
     public void input(String answer) {
         if (this.status.equals(INITIAL)) {
-            inputInitial(answer);
+            initialState.inputInitial(answer);
         } else if (this.status.equals(RECTANGLE_SELECTED)) {
 
             try {
@@ -60,8 +83,6 @@ public class Module {
     }
 
     private void inputInitial(String answer) {
-        if (answer.equals("R")) {
-            this.status = RECTANGLE_SELECTED;
-        }
+        initialState.inputInitial(answer);
     }
 }
