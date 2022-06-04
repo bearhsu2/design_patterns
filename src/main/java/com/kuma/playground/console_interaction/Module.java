@@ -10,9 +10,6 @@ public class Module {
     private int a;
     private int b;
 
-    public String getStatus() {
-        return status;
-    }
 
     public void setStatus(String status) {
         this.status = status;
@@ -36,7 +33,7 @@ public class Module {
 
     public String print() {
         if (this.status.equals(INITIAL)) {
-            return initialState.printInitial();
+            return initialState.print();
         }
         if (this.status.equals(RECTANGLE_SELECTED)) {
             return "Rectangle side A length?";
@@ -50,13 +47,9 @@ public class Module {
         return "";
     }
 
-    private String printInitial() {
-        return initialState.printInitial();
-    }
-
     public void input(String answer) {
         if (this.status.equals(INITIAL)) {
-            initialState.inputInitial(answer);
+            initialState.input(answer);
         } else if (this.status.equals(RECTANGLE_SELECTED)) {
 
             try {
@@ -82,7 +75,4 @@ public class Module {
 
     }
 
-    private void inputInitial(String answer) {
-        initialState.inputInitial(answer);
-    }
 }

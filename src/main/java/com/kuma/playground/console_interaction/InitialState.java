@@ -7,11 +7,11 @@ public class InitialState {
         this.module = module;
     }
 
-    String printInitial() {
+    String print() {
         return "Shape: (C)ircle or (R)ectangle?";
     }
 
-    void inputInitial(String answer) {
+    void input(String answer) {
         if (answer.equals("R")) {
             module.setStatus(Module.RECTANGLE_SELECTED);
         }
