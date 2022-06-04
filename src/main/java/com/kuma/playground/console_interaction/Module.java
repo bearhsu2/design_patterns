@@ -1,10 +1,10 @@
 package com.kuma.playground.console_interaction;
 
 public class Module {
-    private final String RECTANGLE_B_SELECTED = "RectangleBSelected";
-    private final String RECTANGLE_A_SELECTED = "RectangleASelected";
-    private final String RECTANGLE_SELECTED = "RectangleSelected";
     private final String INITIAL = "Initial";
+    private final String RECTANGLE_A_SELECTED = "RectangleASelected";
+    private final String RECTANGLE_B_SELECTED = "RectangleBSelected";
+    private final String RECTANGLE_SELECTED = "RectangleSelected";
 
 
     private String status = INITIAL;
