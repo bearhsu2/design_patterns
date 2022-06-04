@@ -13,7 +13,7 @@ public class Module {
 
     public String print() {
         if (this.status.equals(INITIAL)) {
-            return "Shape: (C)ircle or (R)ectangle?";
+            return printInitial();
         }
         if (this.status.equals(RECTANGLE_SELECTED)) {
             return "Rectangle side A length?";
@@ -27,9 +27,13 @@ public class Module {
         return "";
     }
 
+    private String printInitial() {
+        return "Shape: (C)ircle or (R)ectangle?";
+    }
+
     public void input(String answer) {
-        if (this.status.equals(INITIAL) && answer.equals("R")) {
-            this.status = RECTANGLE_SELECTED;
+        if (this.status.equals(INITIAL)) {
+            inputInitial(answer);
         } else if (this.status.equals(RECTANGLE_SELECTED)) {
 
             try {
@@ -53,5 +57,11 @@ public class Module {
             // do nothing
         }
 
+    }
+
+    private void inputInitial(String answer) {
+        if (answer.equals("R")) {
+            this.status = RECTANGLE_SELECTED;
+        }
     }
 }
