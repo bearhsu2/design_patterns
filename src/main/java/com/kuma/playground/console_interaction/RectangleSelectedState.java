@@ -17,7 +17,8 @@ public class RectangleSelectedState implements State {
         try {
             Integer answerInt = Integer.valueOf(answer);
             module.setA(answerInt);
-            module.setStatus(Module.RECTANGLE_A_SELECTED);
+
+            module.setState(new RectangleASelectedState(this.module));
         } catch (NumberFormatException e) {
             return;
         }

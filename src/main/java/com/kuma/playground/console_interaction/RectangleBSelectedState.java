@@ -15,6 +15,5 @@ public class RectangleBSelectedState implements State {
     @Override
     public void input(String answer) {
         // do nothing
-        System.out.println("");
     }
 }

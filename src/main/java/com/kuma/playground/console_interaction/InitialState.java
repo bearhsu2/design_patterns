@@ -15,7 +15,7 @@ public class InitialState implements State {
     @Override
     public void input(String answer) {
         if (answer.equals("R")) {
-            module.setStatus(Module.RECTANGLE_SELECTED);
+            module.setState(new RectangleSelectedState(this.module));
         }
     }
 }
