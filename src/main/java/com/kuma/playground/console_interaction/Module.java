@@ -6,6 +6,9 @@ public class Module {
     public static final String RECTANGLE_B_SELECTED = "RectangleBSelected";
     public static final String RECTANGLE_SELECTED = "RectangleSelected";
     private final InitialState initialState = new InitialState(this);
+    private final RectangleSelectedState rectangleSelectedState = new RectangleSelectedState(this);
+    private final RectangleASelectedState rectangleASelectedState = new RectangleASelectedState(this);
+    private final RectangleBSelectedState rectangleBSelectedState = new RectangleBSelectedState(this);
     private String status = INITIAL;
     private int a;
     private int b;
@@ -36,13 +39,13 @@ public class Module {
             return initialState.print();
         }
         if (this.status.equals(RECTANGLE_SELECTED)) {
-            return "Rectangle side A length?";
+            return rectangleSelectedState.print();
         }
         if (this.status.equals(RECTANGLE_A_SELECTED)) {
-            return "Rectangle side B length?";
+            return rectangleASelectedState.print();
         }
         if (this.status.equals(RECTANGLE_B_SELECTED)) {
-            return "Area=" + (a * b) + ", Circumference=" + (2 * (a + b));
+            return rectangleBSelectedState.print();
         }
         return "";
     }
@@ -51,28 +54,14 @@ public class Module {
         if (this.status.equals(INITIAL)) {
             initialState.input(answer);
         } else if (this.status.equals(RECTANGLE_SELECTED)) {
-
-            try {
-                Integer answerInt = Integer.valueOf(answer);
-                this.a = answerInt;
-                this.status = RECTANGLE_A_SELECTED;
-            } catch (NumberFormatException e) {
-                return;
-            }
-
+            rectangleSelectedState.input(answer);
         } else if (this.status.equals(RECTANGLE_A_SELECTED)) {
-
-            try {
-                Integer answerInt = Integer.valueOf(answer);
-                this.b = answerInt;
-                this.status = RECTANGLE_B_SELECTED;
-            } catch (NumberFormatException e) {
-                return;
-            }
+            rectangleASelectedState.input(answer);
         } else if (this.status.equals(RECTANGLE_B_SELECTED)) {
-            // do nothing
+            rectangleBSelectedState.input(answer);
         }
 
     }
+
 
 }
