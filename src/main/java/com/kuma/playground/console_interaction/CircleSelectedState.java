@@ -18,7 +18,7 @@ public class CircleSelectedState implements State {
         try {
             int r = Integer.parseInt(answer);
 
-            module.setState(new RadiusState(this.module, r));
+            module.setState(new CircleRSelectedState(this.module, r));
         } catch (NumberFormatException e) {
             // do nothing
 

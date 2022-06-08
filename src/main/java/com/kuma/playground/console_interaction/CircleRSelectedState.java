@@ -1,10 +1,10 @@
 package com.kuma.playground.console_interaction;
 
-public class RadiusState implements State {
+public class CircleRSelectedState implements State {
     private final Module module;
     private final int r;
 
-    public RadiusState(Module module, int r) {
+    public CircleRSelectedState(Module module, int r) {
         this.module = module;
         this.r = r;
     }
@@ -16,6 +16,6 @@ public class RadiusState implements State {
 
     @Override
     public void input(String answer) {
-
+        // do nothing
     }
 }
