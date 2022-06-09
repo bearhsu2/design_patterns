@@ -6,28 +6,46 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 
 class MagnetoEffectTest {
+
+    private final MagnetoEffect magnetoEffect = new MagnetoEffect();
+    private Point before;
+    private Point after;
+
     @Test
     void no_anchor() {
 
-        MagnetoEffect magnetoEffect = new MagnetoEffect();
+        given_mouse_was_at(49, 50);
 
-        Point before = new Point(49, 50);
+        when_check();
 
-        Point after = magnetoEffect.check(before);
+        then_mouse_new_position_is(49, 50);
+    }
 
-        Assertions.assertEquals(new Point(49, 50), after);
+    private void given_mouse_was_at(int x, int y) {
+        before = new Point(x, y);
+    }
+
+    private void when_check() {
+        after = magnetoEffect.check(before);
+    }
+
+    private void then_mouse_new_position_is(int x, int y) {
+        Assertions.assertEquals(new Point(x, y), after);
     }
 
     @Test
     void one_near_anchor() {
 
-        MagnetoEffect magnetoEffect = new MagnetoEffect();
-        magnetoEffect.addAnchor(new Point(50, 50));
+        given_anchor_is(50, 50);
 
-        Point before = new Point(49, 50);
+        given_mouse_was_at(49, 50);
 
-        Point after = magnetoEffect.check(before);
+        when_check();
 
-        Assertions.assertEquals(new Point(50, 50), after);
+        then_mouse_new_position_is(50, 50);
+    }
+
+    private void given_anchor_is(int x, int y) {
+        magnetoEffect.addAnchor(new Point(x, y));
     }
 }
