@@ -13,11 +13,8 @@ class MagnetoEffectTest {
 
     @Test
     void no_anchor() {
-
         given_mouse_was_at(49, 50);
-
         when_check();
-
         then_mouse_new_position_is(49, 50);
     }
 
@@ -35,17 +32,21 @@ class MagnetoEffectTest {
 
     @Test
     void one_near_anchor() {
-
         given_anchor_is(50, 50);
-
         given_mouse_was_at(49, 50);
-
         when_check();
-
         then_mouse_new_position_is(50, 50);
     }
 
     private void given_anchor_is(int x, int y) {
         magnetoEffect.addAnchor(new Point(x, y));
+    }
+
+    @Test
+    void one_far_anchor() {
+        given_anchor_is(0, 0);
+        given_mouse_was_at(49, 50);
+        when_check();
+        then_mouse_new_position_is(49, 50);
     }
 }
