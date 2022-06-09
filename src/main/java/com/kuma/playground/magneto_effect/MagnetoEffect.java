@@ -9,22 +9,25 @@ public class MagnetoEffect {
 
     public Point check(Point point) {
 
-        if (anchors.isEmpty()) {
-            return point;
-        }
 
-        Point nearAnchor = null;
+        double nearestDistance = Double.MAX_VALUE;
+        Point nearestAnchor = null;
         for (Point anchor : anchors) {
             double distance = Math.pow(anchor.x - point.x, 2) + Math.pow(anchor.y - point.y, 2);
             if (distance <= Math.pow(5, 2)) {
-                nearAnchor = anchor;
+
+                if (distance < nearestDistance) {
+                    nearestAnchor = anchor;
+                    nearestDistance = distance;
+
+                }
             }
         }
 
-        if (nearAnchor == null) {
+        if (nearestAnchor == null) {
             return point;
         } else {
-            return nearAnchor;
+            return nearestAnchor;
         }
 
     }
