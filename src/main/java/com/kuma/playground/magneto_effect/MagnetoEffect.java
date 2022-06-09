@@ -1,6 +1,7 @@
 package com.kuma.playground.magneto_effect;
 
 import java.awt.*;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,20 +10,7 @@ public class MagnetoEffect {
 
     public Point check(Point point) {
 
-
-        double nearestDistance = Double.MAX_VALUE;
-        Point nearestAnchor = null;
-        for (Point anchor : anchors) {
-            double distance = Math.pow(anchor.x - point.x, 2) + Math.pow(anchor.y - point.y, 2);
-            if (distance <= Math.pow(5, 2)) {
-
-                if (distance < nearestDistance) {
-                    nearestAnchor = anchor;
-                    nearestDistance = distance;
-
-                }
-            }
-        }
+        Point nearestAnchor = findNearestAnchorFor(point);
 
         if (nearestAnchor == null) {
             return point;
@@ -30,6 +18,19 @@ public class MagnetoEffect {
             return nearestAnchor;
         }
 
+    }
+
+    private Point findNearestAnchorFor(Point point) {
+        return anchors.stream()
+                .map(anchor -> new AbstractMap.SimpleEntry<Point, Double>(anchor, getDistance(anchor, point)))
+                .filter(entry -> entry.getValue() < Math.pow(5, 2))
+                .min(java.util.Map.Entry.comparingByValue())
+                .map(AbstractMap.SimpleEntry::getKey)
+                .orElse(null);
+    }
+
+    private double getDistance(Point point1, Point point2) {
+        return Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2);
     }
 
     public void addAnchor(Point point) {
