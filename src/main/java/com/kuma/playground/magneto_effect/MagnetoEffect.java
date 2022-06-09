@@ -1,29 +1,35 @@
 package com.kuma.playground.magneto_effect;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MagnetoEffect {
-    private Point anchor;
+    private List<Point> anchors = new ArrayList<>();
 
     public Point check(Point point) {
 
-        if (anchor == null) {
+        if (anchors.isEmpty()) {
             return point;
         }
 
-        if (isFarFromAnchor(point)) {
-            return point;
+        Point nearAnchor = null;
+        for (Point anchor : anchors) {
+            double distance = Math.pow(anchor.x - point.x, 2) + Math.pow(anchor.y - point.y, 2);
+            if (distance <= Math.pow(5, 2)) {
+                nearAnchor = anchor;
+            }
         }
 
-        return anchor;
+        if (nearAnchor == null) {
+            return point;
+        } else {
+            return nearAnchor;
+        }
 
-    }
-
-    private boolean isFarFromAnchor(Point point) {
-        return Math.pow(anchor.x - point.x, 2) + Math.pow(anchor.y - point.y, 2) > Math.pow(5, 2);
     }
 
     public void addAnchor(Point point) {
-        this.anchor = point;
+        this.anchors.add(point);
     }
 }

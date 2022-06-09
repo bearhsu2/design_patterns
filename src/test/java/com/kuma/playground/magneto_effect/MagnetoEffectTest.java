@@ -49,4 +49,14 @@ class MagnetoEffectTest {
         when_check();
         then_mouse_new_position_is(49, 50);
     }
+
+    @Test
+    void two_anchors_and_only_is_near() {
+        given_anchor_is(50, 50);
+        given_anchor_is(0, 0);
+
+        given_mouse_was_at(49, 50);
+        when_check();
+        then_mouse_new_position_is(50, 50);
+    }
 }
